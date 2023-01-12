@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CryptoInfo.Models
 {
-    internal class AssetOverviewViewModel
+    internal class AssetOverviewModel
     {
         public class AssetOverview 
         {
@@ -22,7 +22,7 @@ namespace CryptoInfo.Models
                 this.name = token["name"].ToString();
             }
         }
-        public async Task<AssetOverview[]> GetAssetOverview()
+        public async Task<AssetOverview[]> GetAssetOverviews()
         {
             HttpClient httpClient = new HttpClient();
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://cryptingup.com/api/assetsoverview");
