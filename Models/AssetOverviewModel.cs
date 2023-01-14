@@ -13,8 +13,8 @@ namespace CryptoInfo.Models
     {
         public class AssetOverview 
         {
-            string asset_id;
-            string name;
+            public readonly string asset_id;
+            public readonly string name;
 
             public AssetOverview(JToken token)
             {
@@ -37,7 +37,7 @@ namespace CryptoInfo.Models
 
                 assets.ForEach((element) =>
                 {
-                    result.Add(new AssetOverview(element));
+                    result.Add(new AssetOverview(element));                  
                 });
             }
             else
