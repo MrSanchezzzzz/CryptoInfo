@@ -27,7 +27,6 @@ namespace CryptoInfo.Models
             HttpClient httpClient = new HttpClient();
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://cryptingup.com/api/assetsoverview");
             HttpResponseMessage response = await httpClient.SendAsync(request);
-            Console.Error.WriteLine(response.StatusCode.ToString());
 
             List<AssetOverview> result = new List<AssetOverview>();
 
