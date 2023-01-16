@@ -1,0 +1,36 @@
+﻿<Window x:Class="CryptoInfo.Views.AssetDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CryptoInfo.Views"
+        mc:Ignorable="d"
+        Title="Details"  Width="400" Loaded="Window_Loaded">
+    <Grid x:Name="grid1" Margin="5,5,5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="50"></RowDefinition>
+            <RowDefinition MaxHeight="50"></RowDefinition>
+            <RowDefinition MaxHeight="50"></RowDefinition>
+            <RowDefinition MaxHeight="50"></RowDefinition>
+            <RowDefinition MaxHeight="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="NameLabel" FontSize="32" Grid.Row="0">Name</Label>
+        <DockPanel Grid.Row="1">
+            <Label FontSize="22" DockPanel.Dock="Left">Price:</Label>
+            <Label x:Name="PriceLabel" FontSize="22"  DockPanel.Dock="Left"></Label>
+        </DockPanel>
+        <DockPanel Grid.Row="2">
+            <Label FontSize="22" DockPanel.Dock="Left">Change 1 hour:</Label>
+            <Label x:Name="Change1HLabel" FontSize="22"  DockPanel.Dock="Left"></Label>
+        </DockPanel>
+        <DockPanel Grid.Row="3">
+            <Label FontSize="22" DockPanel.Dock="Left">Change 24 hours:</Label>
+            <Label x:Name="Change24HLabel" FontSize="22"  DockPanel.Dock="Left"></Label>
+        </DockPanel>
+        <DockPanel Grid.Row="4">
+            <Label FontSize="22" DockPanel.Dock="Left">Change 7 days:</Label>
+            <Label x:Name="Change7DLabel" FontSize="22"  DockPanel.Dock="Left"></Label>
+        </DockPanel>
+    </Grid>
+</Window>
