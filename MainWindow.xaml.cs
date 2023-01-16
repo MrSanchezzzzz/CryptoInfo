@@ -1,5 +1,6 @@
 ﻿using CryptoInfo.Models;
 using CryptoInfo.Utils;
+using CryptoInfo.Views;
 
 using System;
 using System.Linq;
@@ -146,7 +147,7 @@ namespace CryptoInfo
         private void ShowDetails()
         {
             AssetOverview assetOverview = assets[currentRow];
-
+            (new AssetDetailsWindow(assetOverview.asset_id)).Show();
         }
     }
 }
