@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace CryptoInfo.Models
 {
@@ -64,6 +67,21 @@ namespace CryptoInfo.Models
                 currencies.Add(currency);
             }
             quote = currencies.ToArray();
+        }
+        public static async Task<Asset> FromIdAsync(string id)
+        {
+            HttpClient httpClient = new HttpClient();
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"https://cryptingup.com/api/assets/{id}");
+            Task<HttpResponseMessage> task = Task.Run(async () => await httpClient.SendAsync(request));
+            HttpResponseMessage response = task.Result;
+            JToken token = JObject.Parse(await response.Content.ReadAsStringAsync());
+
+            return new Asset(token["asset"]);
+        }
+        public static Asset FromId(string id)
+        {
+            Task<Asset> task = Task.Run<Asset>(async () => await FromIdAsync(id));
+            return task.Result;
         }
     }
     internal class Currency
